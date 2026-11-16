@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Event Bud - stoiska targowe w Europie | Poznań</title>
+<meta name="description" content="Projektowanie i zabudowa stoisk targowych w Polsce i w Europie. Wizualizacja 3D, produkcja, montaż, serwis. Event Bud, Poznań.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#1D1D1B">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/archivo-rdzen.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/knaap-0-360.webp" imagesrcset="img/knaap-0-360.webp 360w, img/knaap-0-473.webp 473w" imagesizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" fetchpriority="high">
+<style>@font-face{font-family:Archivo;src:url(fonts/archivo-rdzen.woff2) format("woff2");font-weight:400 800;font-stretch:75% 100%;font-display:swap;unicode-range:U+0020-007E,U+00A0-00FF,U+2013-2014,U+2018-201E,U+2022,U+2026,U+20AC}
+@font-face{font-family:Archivo;src:url(fonts/archivo-pl.woff2) format("woff2");font-weight:400 800;font-stretch:75% 100%;font-display:swap;unicode-range:U+0104-0107,U+010C-010D,U+0118-011B,U+0141-0144,U+0158-0161,U+016E-016F,U+0179-017E}
+:root{--ink:#1D1D1B;--ink2:#2A2B2E;--or:#FB6017;--or-d:#D94A08;--grey:#EEF0F2;--line:#D7DBE0;--mut:#565B63;--w:min(92vw,1720px);--r:26px;--stroke:5px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 Archivo,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3{font-stretch:78%;font-weight:760;line-height:1.04;letter-spacing:-.005em;margin:0 0 .5em}
+h2{font-size:clamp(1.9rem,1.2rem + 2.4vw,3.5rem);max-width:22ch}
+h3{font-size:1.3rem}
+p{margin:0 0 1em}
+.wrap{width:var(--w);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0}.skip:focus{left:8px;top:8px;z-index:99;background:#fff;padding:8px 12px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+:focus-visible{outline:3px solid var(--or);outline-offset:3px}
+
+/* przyciski - kształt litery D z logo: prosty bok, łuk po prawej */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 34px 0 24px;background:var(--or);color:var(--ink);font-weight:700;font-stretch:88%;font-size:1.06rem;text-decoration:none;border:0;border-radius:0 999px 999px 0;cursor:pointer;transition:background .2s,transform .15s}
+.btn:hover{background:#ff7a3a}.btn:active{transform:translateY(1px)}
+.btn-ink{background:var(--ink);color:#fff}.btn-ink:hover{background:#3a3b3e}
+
+/* nagłówek */
+.top{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);transition:background .25s,border-color .25s,color .25s}
+.top-in{display:flex;align-items:center;gap:20px;height:68px}
+.brand{display:block;color:var(--ink);flex:none}
+.logo-svg{display:block;height:42px;width:auto}
+.nav{margin-left:auto;display:flex;align-items:center;gap:28px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;font-weight:600;font-stretch:90%;font-size:1rem}
+.nav ul a{display:block;padding:22px 0 19px;border-bottom:var(--stroke) solid transparent}
+.nav ul a:hover{border-color:var(--line)}
+.nav ul a[aria-current=page]{border-color:var(--or)}
+.nav-tel{white-space:nowrap}
+.lang{flex:none;display:inline-flex;border:2px solid currentColor;background:transparent;color:inherit;font:700 .85rem/1 Archivo,sans-serif;padding:0;border-radius:0 999px 999px 0;cursor:pointer;overflow:hidden}
+.lang span:not(.vh){padding:7px 9px}.lang span:last-child{padding-right:12px}
+.lang .lang-pl,.is-en .lang .lang-en{background:var(--or);color:var(--ink)}.is-en .lang .lang-pl{background:transparent;color:inherit}
+.burger{display:none}
+.home .top.on-hero{position:fixed;left:0;right:0;background:transparent;border-color:transparent;color:#fff}
+.home .top.on-hero .brand{color:#fff}
+.home .top.solid{background:#fff;border-color:var(--line);color:var(--ink)}
+.home .top.solid .brand{color:var(--ink)}
+@media (max-width:1080px){
+ .top-in{height:62px;gap:12px}.logo-svg{height:36px}
+ .lang{margin-left:auto}
+ .burger{display:inline-flex;align-items:center;gap:8px;background:none;border:0;color:inherit;font:700 1rem Archivo,sans-serif;font-stretch:88%;padding:10px 0 10px 6px;cursor:pointer;min-height:44px}
+ .burger-l{width:22px;height:14px;border-top:3px solid currentColor;border-bottom:3px solid currentColor;position:relative}
+ .burger-l::after{content:"";position:absolute;left:0;right:6px;top:2.5px;border-top:3px solid currentColor}
+ .nav{display:none;position:fixed;inset:62px 0 auto 0;background:#fff;color:var(--ink);flex-direction:column;align-items:stretch;gap:0;padding:8px 4vw 22px;border-bottom:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.12)}
+ .nav.open{display:flex}
+ .nav ul{flex-direction:column;gap:0}
+ .nav ul a{padding:14px 0 11px;font-size:1.25rem;border-bottom:1px solid var(--line);border-left:var(--stroke) solid transparent;padding-left:12px}
+ .nav ul a[aria-current=page]{border-left-color:var(--or);border-bottom-color:var(--line)}
+ .nav-tel{padding:16px 0 0 12px;font-size:1.15rem}
+}
+
+/* hero - ściana gotowych stoisk */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;color:#fff;background:var(--ink);overflow:hidden}
+.mosaic{position:absolute;inset:0;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:3px;background:var(--ink)}
+.tile{overflow:hidden;min-height:0}
+.tile img{width:100%;height:100%;object-fit:cover}
+.t7,.t8,.t9,.t10{display:none}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,19,.55) 0%,rgba(20,20,19,.35) 30%,rgba(20,20,19,.86) 62%,rgba(20,20,19,.94) 100%)}
+.hero-in{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:flex-end;padding:96px 0 26px}
+.hero h1{font-size:clamp(2.35rem,1.2rem + 5.2vw,5.6rem);font-stretch:76%;font-weight:780;line-height:.98;max-width:13ch;margin:0 0 18px}
+.hero .lead{font-size:clamp(1.04rem,.95rem + .45vw,1.3rem);line-height:1.5;max-width:40ch;color:#E9EAEC;margin:0 0 26px}
+.hero-act{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px}
+.hero-tel{font-weight:700;font-size:1.12rem;text-decoration:none;border-bottom:2px solid rgba(255,255,255,.4);padding-bottom:2px}
+.hero-note{margin:22px 0 0;font-size:.82rem;color:#BFC2C7}
+@media (min-width:700px){.hero-shade{background:linear-gradient(90deg,rgba(20,20,19,.92) 0%,rgba(20,20,19,.78) 38%,rgba(20,20,19,.25) 75%,rgba(20,20,19,.15) 100%),linear-gradient(0deg,rgba(20,20,19,.6),transparent 40%),linear-gradient(180deg,rgba(20,20,19,.7),transparent 150px)}.hero-in{justify-content:center;padding:120px 0 60px}.hero-note{position:absolute;bottom:22px;left:0}}
+@media (min-width:900px){.mosaic{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr)}.t7,.t8{display:block}}
+@media (min-width:1800px){.mosaic{grid-template-columns:repeat(5,1fr)}.t9,.t10{display:block}}
+
+/* sekcje */
+section{position:relative}
+.about{padding:clamp(64px,8vw,130px) 0}
+.about-in{display:grid;gap:44px}
+.about-txt p{font-size:1.12rem;max-width:56ch;color:#33363b}
+.fairs{color:var(--mut)!important;font-size:1rem!important}
+.fairs b{color:var(--ink);font-weight:600}
+.scope h3{font-size:1.5rem;margin-bottom:14px}
+.bars{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+.bars li{position:relative;padding:15px 0 15px 34px;border-bottom:1px solid var(--line);font-weight:600;font-size:1.06rem}
+.bars li::before{content:"";position:absolute;left:0;top:50%;width:18px;height:var(--stroke);margin-top:-2px;background:var(--or);border-radius:0 3px 3px 0}
+@media (min-width:1000px){.about-in{grid-template-columns:5fr 6fr;gap:6vw}.bars{grid-template-columns:1fr 1fr;column-gap:36px}}
+
+.pairs-sec{background:var(--grey);padding:clamp(64px,7vw,120px) 0}
+.sec-head{display:grid;gap:8px;margin-bottom:34px}
+.sec-head p{color:var(--mut);max-width:56ch;font-size:1.08rem;margin:0}
+@media (min-width:1000px){.sec-head h2{max-width:none}.sec-head{grid-template-columns:1.25fr 1fr;align-items:end;gap:6vw}}
+.carousel .track{list-style:none;margin:0;padding:0 0 6px;display:grid;grid-auto-flow:column;grid-auto-columns:88%;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;cursor:grab;overscroll-behavior-x:contain}
+.carousel .track::-webkit-scrollbar{display:none}
+.carousel .track.drag{cursor:grabbing;scroll-snap-type:none}
+.carousel .track.drag a{pointer-events:none}
+.pair{scroll-snap-align:start;background:#fff;padding:12px 12px 4px;border-radius:0 var(--r) var(--r) 0}
+.pair-imgs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pair figure{margin:0}
+.pair img{aspect-ratio:4/3;width:100%;object-fit:cover;background:#ddd}
+.pair figcaption{font-size:.84rem;color:var(--mut);padding:7px 0 0}
+.pair figure:last-child figcaption{color:var(--ink);font-weight:600}
+.pair h3,.pair .pair-h{font-size:1.25rem;margin:10px 0 10px}
+.car-nav{display:flex;gap:10px;align-items:center;margin-top:24px}
+.car-btn{width:54px;height:54px;border:2px solid var(--ink);background:#fff;color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer;border-radius:0 999px 999px 0}
+.car-btn:hover{background:var(--ink);color:#fff}
+.car-nav .btn{margin-left:auto}
+@media (min-width:700px){.carousel .track{grid-auto-columns:calc((100% - 18px)/2)}}
+@media (min-width:1300px){.carousel .track{grid-auto-columns:calc((100% - 36px)/3)}}
+@media (min-width:1900px){.carousel .track{grid-auto-columns:calc((100% - 54px)/4)}}
+@media (max-width:520px){.car-nav .btn{padding:0 22px 0 16px}}
+
+.process{background:var(--ink);color:#fff;padding:clamp(64px,7vw,120px) 0}
+.process-in{display:grid;gap:40px}
+.process-head p{color:#C9CCD1;max-width:40ch;font-size:1.08rem}
+.process-img{margin:26px 0 0}
+.process-img img{border-radius:0 var(--r) var(--r) 0;width:100%;aspect-ratio:4/3;object-fit:cover}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;border-top:1px solid #3c3d40;align-content:start}
+.steps li{display:flex;gap:18px;align-items:baseline;padding:18px 0;border-bottom:1px solid #3c3d40;font-size:1.15rem;font-weight:600}
+.steps .n{flex:none;width:30px;color:var(--or);font-weight:800;font-stretch:80%;font-size:1.2rem}
+@media (min-width:1000px){.process-in{grid-template-columns:5fr 7fr;gap:6vw}.steps{grid-template-columns:1fr 1fr;column-gap:40px}}
+@media (max-width:999px){.process-img{display:none}}
+
+.tiles-sec{padding:clamp(64px,7vw,120px) 0 clamp(40px,4vw,70px)}
+.tiles3{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.tile3{display:block;position:relative;text-decoration:none;color:#fff;overflow:hidden;border-radius:0 var(--r) var(--r) 0;background:var(--ink)}
+.tile3 img{width:100%;aspect-ratio:16/10;object-fit:cover;opacity:.92;transition:transform .5s,opacity .3s}
+.tile3:hover img{transform:scale(1.03);opacity:.8}
+.tile3-t{position:absolute;inset:auto 0 0 0;padding:60px 22px 20px;background:linear-gradient(0deg,rgba(20,20,19,.92),rgba(20,20,19,0));display:grid;gap:4px}
+.tile3-t b{font-size:1.7rem;font-stretch:78%;font-weight:760;line-height:1}
+.tile3-t b::after{content:"";display:block;width:34px;height:var(--stroke);background:var(--or);margin-top:10px;border-radius:0 3px 3px 0}
+.tile3-t span{color:#DADCE0;font-size:.98rem}
+@media (min-width:900px){.tiles3{grid-template-columns:repeat(3,1fr)}}
+
+.quotes-sec{background:var(--grey);padding:clamp(64px,7vw,110px) 0}
+.quotes2{display:grid;gap:18px;margin-bottom:30px}
+@media (min-width:900px){.quotes2{grid-template-columns:repeat(3,1fr)}}
+.q{margin:0;background:#fff;padding:26px 26px 22px;border-radius:0 var(--r) var(--r) 0;border-left:var(--stroke) solid var(--or);break-inside:avoid}
+.q p{font-size:1.04rem;line-height:1.6;margin:0 0 14px}
+.q footer{font-size:.95rem;color:var(--mut)}.q footer b{color:var(--ink)}
+
+.contact{padding:clamp(64px,7vw,120px) 0}
+.contact-in{display:grid;gap:40px}
+.contact-txt>p{font-size:1.1rem;color:#33363b;max-width:46ch}
+.cdata{display:grid;grid-template-columns:auto 1fr;gap:10px 22px;margin:28px 0 0;font-size:1.08rem}
+.cdata dt{color:var(--mut)}.cdata dd{margin:0;font-weight:600}
+.cdata a{text-decoration:none;border-bottom:2px solid var(--or)}
+.form{display:grid;grid-template-columns:1fr;gap:14px;background:var(--grey);padding:clamp(20px,3vw,36px);border-radius:0 var(--r) var(--r) 0}
+.form label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+.form input,.form textarea{width:100%;font:inherit;font-weight:400;padding:13px 14px;border:1.5px solid #C4C9CF;background:#fff;color:var(--ink);border-radius:0}
+.form input:focus,.form textarea:focus{border-color:var(--ink);outline:none}
+.form .btn{justify-self:start;margin-top:6px}
+.form-msg{margin:0;font-weight:600}
+@media (min-width:700px){.form{grid-template-columns:1fr 1fr}.form .wide,.form .btn,.form-msg{grid-column:1/-1}}
+@media (min-width:1000px){.contact-in{grid-template-columns:5fr 7fr;gap:6vw}}
+
+/* podstrony */
+.page-head{padding:clamp(44px,6vw,96px) 0 clamp(26px,3vw,44px);border-bottom:1px solid var(--line)}
+.page-head h1{font-size:clamp(2.6rem,1.4rem + 5vw,6rem);font-stretch:76%;margin:0 0 14px}
+.page-head h1::after{content:"";display:block;width:64px;height:7px;background:var(--or);margin-top:16px;border-radius:0 4px 4px 0}
+.page-head .lead{font-size:1.15rem;color:#33363b;max-width:60ch;margin:0}
+.grid-sec{padding:clamp(34px,4vw,64px) 0}
+.grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:22px 18px}
+@media (min-width:700px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1200px){.grid{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:1800px){.grid{grid-template-columns:repeat(5,1fr)}}
+.grid-l{grid-template-columns:repeat(2,1fr)}
+@media (min-width:700px){.grid-l{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1200px){.grid-l{grid-template-columns:repeat(5,1fr)}}
+@media (min-width:1800px){.grid-l{grid-template-columns:repeat(6,1fr)}}
+.card .lb{display:block;overflow:hidden;border-radius:0 18px 18px 0;background:#ddd}
+.card img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .4s}
+.card-l img{aspect-ratio:7/10;object-fit:cover;object-position:top}
+.card .lb:hover img{transform:scale(1.03)}
+.card p{margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.card p span{color:var(--mut);font-size:.95rem}
+.grid-h{font-size:clamp(1.6rem,1rem + 1.6vw,2.5rem);margin:56px 0 22px}
+.pairs-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;gap:18px}
+.pair-g{background:var(--grey)}
+@media (min-width:700px){.pairs-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1200px){.pairs-grid{grid-template-columns:repeat(3,1fr)}}
+.quotes-all{columns:1;column-gap:18px}
+.quotes-all .q{margin:0 0 18px;background:var(--grey)}
+@media (min-width:800px){.quotes-all{columns:2}}
+@media (min-width:1300px){.quotes-all{columns:3}}
+@media (min-width:1900px){.quotes-all{columns:4}}
+.google{background:var(--grey);padding:clamp(40px,4vw,64px) 0}
+.google-in{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.google h2{font-size:clamp(1.6rem,1rem + 1.6vw,2.4rem);margin-bottom:8px}.google p{margin:0;color:var(--mut)}
+.letters .grid-h{margin-top:0}
+.cta-band{background:var(--ink);color:#fff;padding:clamp(44px,5vw,80px) 0}
+.cta-in{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;justify-content:space-between}
+.cta-in h2{margin:0}
+
+/* klienci - pas przesuwających się nazw */
+.clients{padding:46px 0 40px;border-top:1px solid var(--line);overflow:hidden}
+.clients-h{font-size:1.1rem;font-stretch:90%;font-weight:700;color:var(--mut);margin:0 0 18px;max-width:none}
+.marquee{display:flex;width:max-content;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-track{list-style:none;margin:0;padding:0;display:flex;align-items:center;flex:none;animation:mq 90s linear infinite}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track li{flex:none;padding:0 26px;font-stretch:76%;font-weight:780;font-size:clamp(1.5rem,1.1rem + 1vw,2.2rem);color:#737A83;white-space:nowrap;position:relative}
+.mq-track li::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:var(--stroke);margin-top:-2px;background:var(--or);border-radius:0 3px 3px 0}
+@keyframes mq{to{transform:translateX(-100%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}.marquee{width:auto;overflow-x:auto}}
+
+/* stopka */
+.foot{background:var(--grey);padding:48px 0 22px;font-size:.98rem}
+.foot-in{display:grid;grid-template-columns:1fr 1fr;gap:26px 24px}
+.foot-brand{grid-column:1/-1}
+.foot .logo-svg{height:44px;margin-bottom:12px}
+.foot-brand p{color:var(--mut);max-width:40ch;margin:0}
+.foot-col p{margin:0}
+.foot a{text-decoration:none}.foot a:hover{text-decoration:underline}
+.foot-nav{list-style:none;margin:0;padding:0;display:grid;gap:6px;grid-column:1/-1;grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+.foot-nav a{font-weight:600}
+.foot-bottom{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;margin-top:32px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut)}
+.copy{font-size:.875em;line-height:1}
+@media (min-width:900px){.foot-in{grid-template-columns:2fr 1fr 1.3fr 1fr}.foot-brand{grid-column:auto}.foot-nav{grid-column:auto;grid-template-columns:1fr}}
+
+/* lightbox */
+.lightbox{border:0;padding:0;max-width:none;max-height:none;width:100vw;height:100vh;height:100dvh;background:#0F0F0E;color:#fff}
+.lightbox::backdrop{background:rgba(15,15,14,.95)}
+.lightbox figure{margin:0;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 64px 30px}
+.lightbox img{max-width:100%;max-height:calc(100% - 40px);object-fit:contain}
+.lightbox figcaption{padding-top:12px;font-weight:600}
+.lb-btn,.lb-close{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;cursor:pointer;font:700 1rem Archivo,sans-serif}
+.lb-btn{top:50%;width:52px;height:64px;margin-top:-32px;font-size:2.2rem;line-height:1}
+.lb-prev{left:6px;border-radius:999px 0 0 999px}.lb-next{right:6px;border-radius:0 999px 999px 0}
+.lb-close{top:12px;right:12px;padding:12px 18px;border-radius:0 999px 999px 0}
+.lb-btn:hover,.lb-close:hover{background:var(--or);color:var(--ink)}
+@media (max-width:600px){.lightbox figure{padding:60px 8px 70px}.lb-btn{top:auto;bottom:10px;margin:0}}
+.lb{display:block}
+.wylinka-badge{display:inline-flex;align-items:center;gap:.4em;color:inherit;text-decoration:none;font-size:.875em;line-height:1;opacity:.85}
+.wylinka-badge:hover,.wylinka-badge:focus-visible{opacity:1}
+.wylinka-badge:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.wylinka-badge svg{width:18px;height:18px;flex:none;overflow:visible}
+.wylinka-badge b{font-weight:600}
+.wylinka-badge .wy-old{opacity:.45;transform-origin:40px 30px;transition:transform .32s cubic-bezier(.3,.7,.4,1),opacity .32s ease-out}
+.wylinka-badge .wy-pod{opacity:0;transition:opacity .2s ease-out .08s}
+.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:translate(9px,7px) rotate(9deg);opacity:0}
+.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:1}
+@media (prefers-reduced-motion:reduce){.wylinka-badge .wy-old,.wylinka-badge .wy-pod{transition:none}.wylinka-badge:hover .wy-old,.wylinka-badge:focus-visible .wy-old{transform:none;opacity:.45}.wylinka-badge:hover .wy-pod,.wylinka-badge:focus-visible .wy-pod{opacity:0}}
+</style>
+<script>try{if(localStorage.getItem('eb-lang')==='en')document.documentElement.classList.add('is-en')}catch(e){}</script>
+<script src="app.js" defer></script>
+</head>
+<body class="home">
+<a class="skip" href="#main">Przejdź do treści</a>
+<header class="top on-hero" id="top">
+<div class="wrap top-in">
+<a class="brand" href="index.html" aria-label="Event Bud - strona główna"><svg class="logo-svg" role="img" aria-label="Event Bud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1048 504" fill="currentColor" fill-rule="evenodd"><path transform="translate(609,0)" d="M0 0 C1 0 2 0 3 0 C5 0 7 0 9 0 C11 4 11 4 11 7 C10 10 9 11 7 13 C4 16 2 19 -1 22 C-1 23 -2 24 -2 24 C-4 26 -4 26 -4 28 C-1 28 -1 28 15 30 C15 32 16 33 16 34 C14 38 12 40 7 41 C4 41 4 41 2 41 C1 42 1 42 -2 42 C-4 42 -6 42 -8 42 C-17 42 -17 42 -20 44 C-24 49 -24 49 -26 51 C-28 54 -31 58 -34 62 C-35 63 -35 63 -36 64 C-38 68 -41 71 -44 75 C-48 79 -51 83 -54 87 C-55 88 -55 88 -56 89 C-59 94 -60 97 -59 102 C-57 105 -54 106 -52 107 C-51 108 -51 108 -49 108 C-44 110 -40 110 -35 110 C-34 110 -33 110 -31 110 C-30 110 -29 110 -28 110 C-26 110 -25 110 -24 110 C-20 110 -17 110 -14 110 C-14 112 -13 113 -13 114 C-21 121 -28 121 -39 121 C-39 121 -39 121 -41 121 C-43 121 -44 121 -46 121 C-49 121 -51 121 -54 121 C-78 122 -78 122 -88 115 C-88 114 -89 113 -90 112 C-95 113 -100 114 -105 116 C-116 120 -127 121 -140 121 C-140 121 -140 121 -143 121 C-166 122 -166 122 -174 114 C-176 110 -174 106 -173 102 C-171 97 -167 93 -164 89 C-160 86 -157 82 -154 78 C-151 74 -148 71 -144 67 C-143 67 -142 67 -142 67 C-142 67 -142 67 -141 66 C-139 62 -137 60 -134 57 C-132 55 -132 53 -133 50 C-148 50 -161 61 -173 70 C-173 71 -174 71 -175 72 C-187 80 -197 91 -208 101 C-209 102 -210 103 -210 104 C-213 106 -215 109 -217 111 C-224 118 -229 121 -239 122 C-240 122 -240 122 -241 122 C-243 123 -243 123 -247 122 C-248 121 -249 120 -250 120 C-251 118 -251 118 -253 117 C-256 118 -258 118 -260 119 C-269 121 -278 122 -287 122 C-287 122 -287 122 -291 122 C-300 122 -310 121 -320 117 C-320 117 -320 117 -322 116 C-324 115 -326 114 -328 113 C-332 112 -334 113 -338 114 C-348 116 -359 115 -368 110 C-373 106 -376 100 -379 94 C-384 95 -387 97 -390 100 C-410 116 -431 123 -457 121 C-460 120 -463 119 -466 118 C-470 116 -474 118 -479 119 C-488 122 -498 121 -508 121 C-510 121 -512 121 -514 121 C-525 122 -535 121 -545 117 C-554 113 -561 115 -571 117 C-582 120 -592 121 -603 121 C-604 120 -604 119 -605 117 C-598 108 -583 107 -572 106 C-569 105 -569 105 -567 104 C-567 103 -567 102 -567 100 C-567 78 -567 78 -561 69 C-560 68 -560 67 -559 66 C-557 61 -553 57 -549 53 C-548 52 -547 52 -547 51 C-537 42 -526 35 -514 31 C-513 31 -512 31 -511 30 C-511 30 -510 30 -509 30 C-509 29 -508 29 -507 29 C-500 27 -493 27 -486 27 C-485 27 -484 27 -483 27 C-476 27 -471 28 -464 31 C-461 35 -461 38 -461 43 C-461 51 -465 55 -470 61 C-470 62 -471 63 -472 64 C-478 72 -486 78 -494 84 C-496 85 -497 86 -499 87 C-504 92 -510 95 -517 98 C-520 99 -520 99 -521 101 C-521 103 -521 103 -520 105 C-510 112 -494 110 -484 108 C-474 107 -474 107 -471 102 C-470 99 -470 99 -468 96 C-462 79 -450 66 -438 52 C-437 51 -436 50 -435 49 C-415 27 -415 27 -404 26 C-398 26 -392 26 -387 29 C-385 32 -385 32 -385 34 C-389 39 -393 44 -398 48 C-398 49 -399 49 -399 50 C-400 51 -402 52 -403 53 C-404 53 -404 53 -405 53 C-405 54 -405 54 -405 55 C-406 56 -407 58 -408 59 C-410 60 -412 62 -414 64 C-414 65 -415 66 -416 67 C-417 68 -419 70 -420 71 C-421 72 -422 73 -422 74 C-423 74 -423 74 -424 76 C-426 77 -426 77 -428 77 C-428 78 -428 78 -429 79 C-430 82 -432 84 -433 87 C-440 97 -440 97 -440 102 C-439 105 -439 105 -437 106 C-431 109 -424 105 -418 103 C-405 96 -395 88 -385 78 C-383 75 -383 75 -380 73 C-376 70 -374 65 -372 60 C-368 48 -359 34 -347 28 C-341 27 -335 26 -329 29 C-328 33 -328 36 -330 39 C-333 44 -337 48 -341 52 C-345 57 -349 62 -353 66 C-356 70 -360 73 -364 76 C-367 79 -368 81 -368 85 C-368 91 -368 95 -364 100 C-359 104 -353 105 -346 104 C-344 104 -344 104 -341 102 C-341 100 -341 97 -341 95 C-341 83 -338 75 -332 65 C-332 65 -332 65 -330 63 C-324 53 -316 47 -306 41 C-305 41 -304 40 -304 40 C-292 32 -279 28 -265 28 C-264 28 -263 28 -262 27 C-246 27 -246 27 -240 31 C-240 32 -239 32 -238 33 C-236 35 -236 38 -236 42 C-236 51 -241 60 -247 66 C-249 69 -252 71 -255 73 C-255 74 -255 74 -257 75 C-269 85 -281 94 -295 100 C-294 102 -294 104 -294 105 C-282 110 -269 111 -257 106 C-231 95 -215 72 -200 49 C-188 30 -188 30 -178 27 C-176 27 -175 27 -174 27 C-173 27 -172 27 -171 27 C-170 27 -169 27 -168 27 C-167 27 -166 27 -166 27 C-165 27 -164 27 -163 27 C-162 27 -162 27 -161 27 C-159 27 -159 27 -157 28 C-157 34 -160 36 -164 40 C-169 45 -173 50 -177 56 C-178 56 -178 57 -179 57 C-180 57 -180 57 -181 57 C-181 58 -181 58 -182 59 C-183 62 -184 65 -185 67 C-180 65 -176 62 -172 59 C-153 43 -127 28 -102 28 C-98 29 -96 30 -93 32 C-91 34 -92 37 -92 40 C-94 46 -99 51 -103 55 C-106 58 -108 62 -111 65 C-114 69 -118 73 -122 76 C-126 80 -129 85 -133 89 C-133 90 -133 90 -135 92 C-136 93 -136 93 -137 95 C-138 96 -139 97 -139 98 C-141 100 -141 102 -141 105 C-132 111 -124 110 -113 108 C-99 103 -88 94 -79 82 C-77 79 -74 76 -72 73 C-68 68 -64 63 -60 57 C-58 54 -55 51 -52 48 C-52 48 -52 48 -51 46 C-51 45 -52 44 -52 42 C-54 42 -57 41 -60 40 C-61 38 -61 38 -61 35 C-58 32 -56 30 -52 29 C-48 29 -45 29 -42 28 C-37 28 -36 27 -32 23 C-31 22 -30 21 -30 20 C-14 0 -14 0 0 0 Z M-525 61 C-536 77 -536 77 -535 84 C-534 88 -534 88 -531 90 C-521 90 -512 82 -505 76 C-502 74 -502 74 -499 73 C-497 71 -495 70 -493 67 C-493 67 -492 66 -492 65 C-491 64 -490 64 -490 63 C-489 62 -488 62 -488 61 C-487 60 -486 59 -486 58 C-485 57 -484 56 -484 55 C-482 52 -482 52 -482 48 C-483 45 -483 45 -485 43 C-500 38 -516 50 -525 61 Z M-291 54 C-292 55 -292 55 -293 56 C-300 61 -307 72 -308 81 C-308 85 -308 87 -306 90 C-305 90 -304 91 -304 91 C-295 88 -287 83 -280 77 C-279 77 -278 76 -278 76 C-269 70 -261 63 -257 53 C-256 50 -256 48 -258 45 C-269 37 -283 48 -291 54 Z "/><path transform="translate(663,71)" d="M0 0 C0 -0 0 -0 2 0 C5 0 8 0 10 0 C12 0 14 0 16 0 C21 0 26 0 31 0 C34 0 38 0 41 0 C52 0 64 0 75 0 C85 0 96 0 106 0 C115 0 124 0 133 0 C138 0 144 0 149 0 C154 0 159 0 164 0 C166 0 168 0 170 0 C187 0 204 0 221 5 C223 5 224 6 225 6 C229 7 233 8 237 10 C238 10 238 10 239 10 C243 11 246 13 249 15 C251 16 252 16 254 17 C269 23 284 31 297 41 C299 43 302 44 304 46 C310 50 315 55 320 61 C322 62 324 64 325 66 C331 71 336 77 341 84 C342 86 344 88 346 90 C365 114 376 145 382 174 C382 176 383 178 383 180 C385 188 386 195 386 203 C386 205 386 206 386 207 C386 210 386 212 386 215 C386 219 386 223 386 226 C386 229 386 232 386 234 C386 235 386 236 386 238 C386 244 385 250 383 256 C382 259 381 262 381 266 C377 287 370 305 359 323 C358 326 356 328 355 331 C350 340 345 347 339 354 C337 357 335 359 333 362 C328 368 322 374 315 379 C313 381 312 383 310 384 C306 389 301 392 296 395 C294 396 292 398 290 399 C275 409 259 417 242 423 C241 424 240 424 239 424 C232 427 226 429 220 430 C217 430 217 430 214 431 C214 432 214 432 214 433 C145 433 76 433 5 433 C6 427 7 425 10 420 C11 419 11 419 12 418 C15 414 18 410 22 406 C25 402 27 399 29 396 C30 395 30 395 30 394 C31 394 32 394 32 394 C33 394 33 393 33 392 C35 389 37 387 39 385 C46 384 52 384 58 384 C59 384 60 384 62 384 C64 384 67 384 69 384 C73 384 77 384 81 384 C91 384 100 384 109 384 C118 384 126 384 135 384 C139 384 144 384 148 384 C159 384 170 384 181 384 C182 384 183 384 184 384 C190 383 197 382 203 381 C204 380 204 380 206 380 C230 374 251 364 270 349 C271 348 272 348 273 347 C300 327 319 296 328 264 C328 264 328 264 329 262 C335 242 335 220 333 199 C333 198 333 198 333 197 C332 187 330 178 327 168 C326 166 326 165 326 163 C319 141 304 120 288 103 C286 101 285 100 283 97 C281 95 279 93 276 91 C272 88 268 86 264 83 C254 74 243 69 230 64 C229 64 228 63 227 63 C223 62 220 60 216 59 C215 59 214 58 213 58 C194 52 174 51 154 51 C152 51 150 51 148 51 C144 51 140 51 136 51 C130 51 123 51 117 51 C102 51 87 51 72 51 C58 51 44 51 30 51 C25 51 20 51 14 51 C-45 51 -45 51 -50 49 C-49 45 -46 43 -44 40 C-42 38 -41 37 -39 35 C-39 34 -38 33 -37 32 C-36 31 -35 30 -35 29 C-30 23 -25 17 -20 11 C-18 10 -17 8 -16 7 C-15 6 -14 5 -14 5 C-14 4 -14 4 -12 3 C-9 -1 -4 0 0 0 Z "/><path transform="translate(316,156)" d="M0 0 C1 0 2 0 2 0 C3 0 4 0 5 0 C6 0 6 0 8 0 C10 0 12 0 14 0 C17 0 20 0 23 0 C25 0 27 0 29 0 C29 0 29 0 32 0 C32 0 33 0 34 0 C35 0 36 0 36 0 C40 1 41 2 42 4 C43 7 43 10 43 13 C43 14 43 14 43 15 C43 18 43 21 43 24 C43 26 43 28 43 30 C43 35 43 39 43 44 C43 51 43 58 43 66 C43 67 43 68 43 69 C43 72 43 75 43 77 C43 80 43 84 43 87 C42 118 42 149 43 180 C43 189 43 198 43 207 C43 213 43 219 43 225 C43 229 43 232 43 236 C43 273 43 273 56 286 C58 289 61 291 64 292 C65 293 65 293 67 294 C74 298 80 298 88 298 C88 298 88 298 90 298 C92 298 95 298 97 298 C99 298 100 298 102 298 C107 298 111 298 116 298 C119 298 121 298 124 298 C134 298 144 298 154 298 C164 298 173 299 182 299 C190 299 198 299 206 299 C211 299 216 299 221 299 C225 299 230 299 234 299 C236 299 237 299 239 299 C260 299 260 299 269 294 C270 293 270 293 272 292 C275 290 277 288 280 286 C280 286 281 286 282 286 C282 286 282 285 282 285 C283 282 285 281 286 279 C290 272 292 265 292 256 C292 256 292 255 292 254 C293 244 293 234 293 224 C293 222 293 220 293 218 C293 214 293 209 293 204 C293 197 293 190 293 183 C292 168 292 152 292 137 C292 121 292 104 292 88 C292 80 292 73 292 66 C292 62 292 57 292 53 C292 51 292 49 292 47 C292 10 292 10 298 3 C305 0 313 1 320 1 C322 1 323 1 324 1 C331 0 337 0 344 1 C346 4 346 4 346 8 C346 9 346 10 346 10 C346 11 346 12 346 13 C346 14 346 16 346 17 C346 20 346 24 346 27 C346 30 346 32 346 35 C346 41 346 48 346 54 C346 59 346 64 346 69 C346 70 346 70 346 71 C346 73 346 74 346 76 C346 89 346 103 346 117 C346 129 346 140 346 152 C346 166 346 180 346 193 C346 195 346 196 346 198 C346 198 346 199 346 200 C346 205 346 210 346 215 C346 222 346 229 346 235 C346 238 346 240 346 243 C346 246 346 250 346 253 C346 254 346 255 346 256 C346 268 343 279 338 290 C338 291 338 292 338 293 C331 311 315 326 300 336 C299 337 298 338 297 338 C292 341 288 343 282 345 C280 345 280 345 280 347 C251 348 223 348 194 348 C191 348 187 348 184 348 C184 348 184 348 182 348 C171 348 160 348 150 348 C138 348 127 348 116 348 C110 348 104 348 97 348 C92 348 86 348 80 348 C78 348 76 348 73 348 C70 348 67 348 64 348 C64 348 63 348 62 348 C56 348 56 348 53 345 C53 345 52 344 52 343 C50 342 50 342 47 342 C42 340 38 338 34 334 C32 334 31 333 30 332 C21 325 13 318 6 307 C6 307 6 306 5 305 C2 300 -1 294 -3 288 C-4 288 -4 287 -4 286 C-11 270 -10 254 -10 238 C-10 235 -10 233 -10 230 C-10 223 -10 216 -10 210 C-10 205 -10 201 -10 197 C-10 185 -10 173 -10 161 C-10 160 -10 159 -10 158 C-10 157 -10 155 -10 154 C-10 153 -10 152 -10 151 C-10 151 -10 150 -10 149 C-10 137 -10 124 -10 112 C-10 99 -10 86 -10 73 C-10 66 -10 59 -10 51 C-10 45 -10 38 -10 31 C-10 29 -10 26 -10 24 C-10 20 -10 17 -10 14 C-10 12 -10 12 -10 10 C-10 8 -10 6 -9 3 C-6 1 -4 0 0 0 Z "/><path transform="translate(121,158)" d="M0 0 C5 0 10 0 15 0 C21 0 28 0 35 0 C37 0 40 0 42 0 C64 0 86 0 104 13 C106 14 107 16 109 17 C111 18 112 19 114 20 C115 21 116 21 116 22 C123 26 127 32 132 38 C132 38 132 38 134 40 C138 46 140 51 143 57 C143 58 144 59 144 60 C154 82 152 112 143 134 C139 143 135 151 127 158 C124 161 122 164 120 166 C118 168 118 168 116 170 C114 171 114 171 113 173 C113 175 113 175 114 177 C115 178 115 178 116 179 C117 180 117 180 118 181 C120 183 122 185 124 187 C142 205 150 229 150 254 C150 283 138 306 118 326 C110 333 100 339 90 343 C87 344 87 344 86 346 C59 346 32 346 6 346 C-7 346 -19 346 -32 346 C-43 346 -54 346 -64 346 C-70 346 -76 346 -82 346 C-87 346 -92 346 -98 346 C-100 346 -102 346 -104 346 C-107 346 -109 346 -112 346 C-112 346 -112 346 -114 346 C-120 346 -120 346 -121 345 C-121 344 -121 342 -121 341 C-121 340 -121 339 -121 338 C-121 337 -121 336 -121 335 C-121 334 -121 333 -121 332 C-121 329 -121 325 -121 322 C-121 320 -121 318 -121 316 C-121 310 -121 305 -121 299 C-117 298 -114 298 -110 298 C-109 298 -108 298 -108 298 C-106 298 -103 298 -101 298 C-99 298 -97 298 -96 298 C-92 298 -88 298 -85 298 C-79 298 -73 298 -68 298 C-51 298 -35 298 -18 298 C-10 298 0 298 8 298 C13 298 18 298 23 298 C27 298 32 298 36 298 C38 298 40 298 41 298 C59 298 72 294 86 282 C95 272 98 263 99 250 C98 237 94 225 85 216 C71 203 58 201 40 201 C38 201 37 201 35 201 C30 201 26 201 21 201 C16 201 12 201 7 201 C-2 201 -11 201 -20 201 C-36 201 -52 200 -69 200 C-74 200 -80 200 -86 200 C-89 200 -93 200 -96 200 C-98 200 -99 200 -101 200 C-103 200 -106 200 -108 200 C-109 200 -110 200 -112 200 C-115 200 -115 200 -121 199 C-121 183 -121 167 -121 150 C-117 149 -114 149 -110 149 C-109 149 -108 149 -108 149 C-105 149 -103 149 -101 149 C-99 149 -97 149 -96 149 C-92 149 -88 149 -84 149 C-79 149 -73 149 -67 149 C-65 149 -63 149 -61 149 C-60 149 -60 149 -58 149 C-44 149 -31 149 -17 149 C-8 149 1 149 10 149 C15 149 20 149 24 149 C29 149 34 149 38 149 C40 149 41 149 43 149 C61 149 74 144 87 132 C95 123 98 112 99 100 C98 89 95 77 87 69 C86 69 86 68 85 67 C75 56 63 52 48 51 C40 51 31 51 22 51 C18 51 14 51 10 51 C1 51 -8 51 -18 51 C-28 51 -39 51 -49 51 C-50 51 -50 51 -51 51 C-68 51 -86 51 -103 51 C-104 51 -104 51 -105 51 C-107 51 -109 51 -112 50 C-113 50 -114 50 -115 50 C-118 50 -118 50 -121 49 C-121 42 -121 36 -121 29 C-121 27 -121 25 -121 22 C-121 19 -121 16 -121 13 C-121 12 -121 10 -121 10 C-121 8 -121 8 -121 7 C-121 6 -121 5 -121 4 C-121 2 -121 2 -120 1 C-117 1 -114 1 -111 1 C-110 1 -110 1 -107 1 C-104 1 -100 1 -96 1 C-96 1 -96 1 -93 1 C-62 0 -31 0 0 0 Z "/></svg></a>
+<nav class="nav" id="nav" aria-label="Menu główne"><ul><li><a href="index.html" data-i18n="nav.start" aria-current="page">Start</a></li><li><a href="projekty.html" data-i18n="nav.proj">Projekty</a></li><li><a href="realizacje.html" data-i18n="nav.real">Realizacje</a></li><li><a href="rekomendacje.html" data-i18n="nav.rek">Rekomendacje</a></li><li><a href="index.html#kontakt" data-i18n="nav.kontakt">Kontakt</a></li></ul>
+<a class="nav-tel" href="tel:+48696008848">+48 696 008 848</a></nav>
+<button class="lang" type="button" data-lang><span class="vh">Język / Language: </span><span class="lang-pl">PL</span><span class="lang-en">EN</span></button>
+<button class="burger" type="button" aria-expanded="false" aria-controls="nav"><span class="burger-l" aria-hidden="true"></span><span data-i18n="nav.menu">Menu</span></button>
+</div></header>
+<main id="main">
+<section class="hero" aria-labelledby="h1">
+<div class="mosaic" aria-hidden="true"><div class="tile t1"><img src="img/knaap-0-473.webp" srcset="img/knaap-0-360.webp 360w, img/knaap-0-473.webp 473w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="473" height="345" alt="" fetchpriority="high" decoding="async"></div><div class="tile t2"><img src="img/bizerba-1-560.webp" srcset="img/bizerba-1-360.webp 360w, img/bizerba-1-560.webp 560w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="645" height="471" alt="" fetchpriority="high" decoding="async"></div><div class="tile t3"><img src="img/granit-1-560.webp" srcset="img/granit-1-360.webp 360w, img/granit-1-560.webp 560w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="700" height="423" alt="" fetchpriority="high" decoding="async"></div><div class="tile t4"><img src="img/nestro-0-560.webp" srcset="img/nestro-0-360.webp 360w, img/nestro-0-560.webp 560w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="621" height="470" alt="" fetchpriority="high" decoding="async"></div><div class="tile t5"><img src="img/rimac-0-560.webp" srcset="img/rimac-0-360.webp 360w, img/rimac-0-560.webp 560w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="638" height="464" alt="" fetchpriority="high" decoding="async"></div><div class="tile t6"><img src="img/artevet-0-500.webp" srcset="img/artevet-0-360.webp 360w, img/artevet-0-500.webp 500w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="500" height="484" alt="" fetchpriority="high" decoding="async"></div><div class="tile t7"><img src="img/multicam-0-497.webp" srcset="img/multicam-0-360.webp 360w, img/multicam-0-497.webp 497w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="497" height="600" alt="" loading="lazy" decoding="async"></div><div class="tile t8"><img src="img/gortex-1-498.webp" srcset="img/gortex-1-360.webp 360w, img/gortex-1-498.webp 498w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="498" height="497" alt="" loading="lazy" decoding="async"></div><div class="tile t9"><img src="img/jobo-0-368.webp" srcset="img/jobo-0-360.webp 360w, img/jobo-0-368.webp 368w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="368" height="361" alt="" loading="lazy" decoding="async"></div><div class="tile t10"><img src="img/dgdena-0-500.webp" srcset="img/dgdena-0-360.webp 360w, img/dgdena-0-500.webp 500w" sizes="(min-width:1800px) 20vw, (min-width:900px) 25vw, 50vw" width="500" height="484" alt="" loading="lazy" decoding="async"></div></div>
+<div class="hero-shade" aria-hidden="true"></div>
+<div class="wrap hero-in">
+<h1 id="h1" data-i18n="h.h1">Projektujemy i budujemy stoiska targowe w całej Europie</h1>
+<p class="lead" data-i18n="h.lead">Wizualizacja 3D, produkcja, transport, montaż i serwis na targach. Jeden wykonawca z Poznania, od pierwszego szkicu do demontażu.</p>
+<div class="hero-act"><a class="btn" href="#kontakt" data-i18n="h.cta">Zapytaj o stoisko</a><a class="hero-tel" href="tel:+48696008848">+48 696 008 848</a></div>
+<p class="hero-note" data-i18n="h.note">Na zdjęciach: stoiska zbudowane przez Event Bud</p>
+</div>
+</section>
+
+<section class="about" id="o-nas">
+<div class="wrap about-in">
+<div class="about-txt">
+<h2 data-i18n="a.h">Jeden wykonawca od szkicu do gotowego stoiska</h2>
+<p data-i18n="a.p1">Od 2014 roku projektujemy i budujemy stoiska targowe. Łączymy dopracowany wygląd z funkcjonalnością i rozsądnym budżetem.</p>
+<p data-i18n="a.p2">Pracujemy na targach w Polsce i za granicą, najczęściej w Niemczech.</p>
+<p class="fairs"><span data-i18n="a.fairs">Nasze stoiska stały m.in. na targach:</span> <b>Medica, Paperworld, Heimtextil, Ligna, EuroShop, Interzoo, Spoga+Gafa, Ambiente, Anuga, Gardenia, Drema.</b></p>
+</div>
+<div class="scope">
+<h3 data-i18n="a.scope">Zakres prac</h3>
+<ul class="bars"><li data-i18n="s0">Projekt stoiska z wizualizacją 3D</li><li data-i18n="s1">Dokumentacja techniczna</li><li data-i18n="s2">Zabudowa na targach w Polsce i za granicą</li><li data-i18n="s3">Instalacja elektryczna i oświetlenie</li><li data-i18n="s4">Grafika: wydruki, litery ze styroduru, frezowanie</li><li data-i18n="s5">Meble i sprzęt AGD na stoisko</li><li data-i18n="s6">Ekrany, projektory, nagłośnienie</li><li data-i18n="s7">Serwis techniczny w czasie targów</li></ul>
+</div>
+</div>
+</section>
+
+<section class="pairs-sec">
+<div class="wrap">
+<div class="sec-head"><h2 data-i18n="p.h">Najpierw wizualizacja. Potem dokładnie takie stoisko.</h2>
+<p data-i18n="p.lead">Przy większości realizacji możemy pokazać projekt 3D obok zdjęcia gotowego stoiska na targach.</p></div>
+<div class="carousel" data-carousel>
+<ul class="track"><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/bizerba-0-full.webp" data-group="pary" data-cap="Bizerba - wizualizacja"><img src="img/bizerba-0-560.webp" srcset="img/bizerba-0-360.webp 360w, img/bizerba-0-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="727" height="471" alt="Bizerba - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/bizerba-1-full.webp" data-group="pary" data-cap="Bizerba - gotowe stoisko"><img src="img/bizerba-1-560.webp" srcset="img/bizerba-1-360.webp 360w, img/bizerba-1-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="645" height="471" alt="Bizerba - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Bizerba</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/knaap-1-full.webp" data-group="pary" data-cap="Knaap - wizualizacja"><img src="img/knaap-1-535.webp" srcset="img/knaap-1-360.webp 360w, img/knaap-1-535.webp 535w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="535" height="345" alt="Knaap - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/knaap-0-full.webp" data-group="pary" data-cap="Knaap - gotowe stoisko"><img src="img/knaap-0-473.webp" srcset="img/knaap-0-360.webp 360w, img/knaap-0-473.webp 473w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="473" height="345" alt="Knaap - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Knaap</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/nestro-1-full.webp" data-group="pary" data-cap="Nestro - wizualizacja"><img src="img/nestro-1-560.webp" srcset="img/nestro-1-360.webp 360w, img/nestro-1-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="655" height="470" alt="Nestro - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/nestro-0-full.webp" data-group="pary" data-cap="Nestro - gotowe stoisko"><img src="img/nestro-0-560.webp" srcset="img/nestro-0-360.webp 360w, img/nestro-0-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="621" height="470" alt="Nestro - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Nestro</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/rimac-1-full.webp" data-group="pary" data-cap="Rimac - wizualizacja"><img src="img/rimac-1-560.webp" srcset="img/rimac-1-360.webp 360w, img/rimac-1-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="640" height="464" alt="Rimac - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/rimac-0-full.webp" data-group="pary" data-cap="Rimac - gotowe stoisko"><img src="img/rimac-0-560.webp" srcset="img/rimac-0-360.webp 360w, img/rimac-0-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="638" height="464" alt="Rimac - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Rimac</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/granit-0-full.webp" data-group="pary" data-cap="Granit - wizualizacja"><img src="img/granit-0-560.webp" srcset="img/granit-0-360.webp 360w, img/granit-0-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="778" height="423" alt="Granit - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/granit-1-full.webp" data-group="pary" data-cap="Granit - gotowe stoisko"><img src="img/granit-1-560.webp" srcset="img/granit-1-360.webp 360w, img/granit-1-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="700" height="423" alt="Granit - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Granit</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/gortex-0-full.webp" data-group="pary" data-cap="Gortex - wizualizacja"><img src="img/gortex-0-560.webp" srcset="img/gortex-0-360.webp 360w, img/gortex-0-560.webp 560w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="1016" height="497" alt="Gortex - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/gortex-1-full.webp" data-group="pary" data-cap="Gortex - gotowe stoisko"><img src="img/gortex-1-498.webp" srcset="img/gortex-1-360.webp 360w, img/gortex-1-498.webp 498w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="498" height="497" alt="Gortex - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Gortex</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/multicam-1-full.webp" data-group="pary" data-cap="Multicam Plus - wizualizacja"><img src="img/multicam-1-497.webp" srcset="img/multicam-1-360.webp 360w, img/multicam-1-497.webp 497w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="497" height="600" alt="Multicam Plus - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/multicam-0-full.webp" data-group="pary" data-cap="Multicam Plus - gotowe stoisko"><img src="img/multicam-0-497.webp" srcset="img/multicam-0-360.webp 360w, img/multicam-0-497.webp 497w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="497" height="600" alt="Multicam Plus - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>Multicam Plus</h3></li><li class="pair">
+<div class="pair-imgs">
+<figure><a class="lb " href="img/dgdena-1-full.webp" data-group="pary" data-cap="D.G. Dena - wizualizacja"><img src="img/dgdena-1-492.webp" srcset="img/dgdena-1-360.webp 360w, img/dgdena-1-492.webp 492w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="492" height="484" alt="D.G. Dena - wizualizacja" loading="lazy" decoding="async"></a><figcaption data-i18n="p.viz">wizualizacja</figcaption></figure>
+<figure><a class="lb " href="img/dgdena-0-full.webp" data-group="pary" data-cap="D.G. Dena - gotowe stoisko"><img src="img/dgdena-0-500.webp" srcset="img/dgdena-0-360.webp 360w, img/dgdena-0-500.webp 500w" sizes="(min-width:1800px) 14vw, (min-width:900px) 22vw, 44vw" width="500" height="484" alt="D.G. Dena - gotowe stoisko" loading="lazy" decoding="async"></a><figcaption data-i18n="p.real">gotowe stoisko</figcaption></figure>
+</div><h3>D.G. Dena</h3></li></ul>
+<div class="car-nav"><button type="button" class="car-btn" data-dir="-1" aria-label="Poprzednie"><span aria-hidden="true">‹</span></button><button type="button" class="car-btn" data-dir="1" aria-label="Następne"><span aria-hidden="true">›</span></button>
+<a class="btn btn-ink" href="realizacje.html" data-i18n="p.all">Wszystkie realizacje</a></div>
+</div>
+</div>
+</section>
+
+<section class="process">
+<div class="wrap process-in">
+<div class="process-head"><h2 data-i18n="pr.h">Jak pracujemy</h2>
+<p data-i18n="pr.lead">Jedna osoba kontaktowa przez cały projekt, od pierwszej rozmowy do demontażu.</p>
+<figure class="process-img"><img src="img/multicam-0-497.webp" srcset="img/multicam-0-360.webp 360w, img/multicam-0-497.webp 497w" sizes="(min-width:900px) 30vw, 92vw" width="497" height="600" alt="Stoisko Multicam Plus zbudowane przez Event Bud" loading="lazy" decoding="async"></figure></div>
+<ol class="steps"><li><span class="n">1</span><span data-i18n="st0">Rozmowa o potrzebach, marce i budżecie</span></li><li><span class="n">2</span><span data-i18n="st1">Projekt stoiska i oferta</span></li><li><span class="n">3</span><span data-i18n="st2">Podpisanie umowy</span></li><li><span class="n">4</span><span data-i18n="st3">Produkcja elementów zabudowy</span></li><li><span class="n">5</span><span data-i18n="st4">Transport na targi</span></li><li><span class="n">6</span><span data-i18n="st5">Montaż</span></li><li><span class="n">7</span><span data-i18n="st6">Przekazanie gotowego stoiska</span></li><li><span class="n">8</span><span data-i18n="st7">Demontaż po targach</span></li></ol>
+</div>
+</section>
+
+<section class="tiles-sec">
+<div class="wrap">
+<h2 class="vh" data-i18n="t.h">Zobacz więcej</h2>
+<ul class="tiles3">
+<li><a href="projekty.html" class="tile3"><img src="img/doc-ambiente-531.webp" srcset="img/doc-ambiente-360.webp 360w, img/doc-ambiente-531.webp 531w" sizes="(min-width:900px) 30vw, 92vw" width="531" height="305" alt="Wizualizacja stoiska Krosno" loading="lazy" decoding="async"><span class="tile3-t"><b data-i18n="t.proj">Projekty</b><span data-i18n="t.proj.p">Wizualizacje 3D stoisk przygotowane dla naszych klientów.</span></span></a></li>
+<li><a href="realizacje.html" class="tile3"><img src="img/granit-1-560.webp" srcset="img/granit-1-360.webp 360w, img/granit-1-560.webp 560w" sizes="(min-width:900px) 30vw, 92vw" width="700" height="423" alt="Gotowe stoisko Granit" loading="lazy" decoding="async"><span class="tile3-t"><b data-i18n="t.real">Realizacje</b><span data-i18n="t.real.p">Stoiska na targach, wiele z nich obok swojego projektu.</span></span></a></li>
+<li><a href="rekomendacje.html" class="tile3"><img src="img/list-drozdowski-360.webp" srcset="img/list-drozdowski-360.webp 360w" sizes="(min-width:900px) 30vw, 92vw" width="610" height="866" alt="List referencyjny Zakładu Metalowego Drozdowski" loading="lazy" decoding="async"><span class="tile3-t"><b data-i18n="t.rek">Rekomendacje</b><span data-i18n="t.rek.p">Co mówią wystawcy o współpracy z nami, listy referencyjne.</span></span></a></li>
+</ul>
+</div>
+</section>
+
+<section class="quotes-sec">
+<div class="wrap">
+<h2 data-i18n="r.h">Co mówią klienci</h2>
+<div class="quotes2">
+<blockquote class="q"><p>Bardzo polecam firmę Eventbud. Wszystko zostało zrealizowane terminowo, kontakt na każdym etapie był szybki i bezproblemowy, a samo stoisko prezentowało się bardzo estetycznie i profesjonalnie. Jesteśmy bardzo zadowoleni ze współpracy!</p><footer><b>Krosno</b> - Katarzyna</footer></blockquote><blockquote class="q"><p>Professional assistance from start to finish. Reliable, on time and perfect result. We have used Event Bud for many years on various European trade shows with great results. Highly recommended.</p><footer><b>Kinna Automatic</b> - Tomas</footer></blockquote><blockquote class="q"><p>Firma EventBud po raz kolejny była wykonawcą naszego stoiska na międzynarodowych targach Ligna w Hannowerze. Jak zawsze stoisko wykonane profesjonalnie, terminowo, w pełni dostosowane do naszych potrzeb. Z przyjemnością polecamy współpracę z Event Bud z Poznania.</p><footer><b>Z.M. Drozdowski</b> - Magdalena</footer></blockquote>
+</div>
+<a class="btn btn-ink" href="rekomendacje.html" data-i18n="r.all">Wszystkie rekomendacje</a>
+</div>
+</section>
+
+<section class="contact" id="kontakt">
+<div class="wrap contact-in">
+<div class="contact-txt">
+<h2 data-i18n="k.h">Planujesz targi?</h2>
+<p data-i18n="k.lead">Napisz, jakie to targi, w jakim terminie i jakiej wielkości ma być stoisko. Odpiszemy z propozycją projektu i wyceną.</p>
+<dl class="cdata">
+<dt data-i18n="k.tel">Telefon</dt><dd><a href="tel:+48696008848">+48 696 008 848</a></dd>
+<dt data-i18n="k.mail">E-mail</dt><dd><a href="mailto:mm@eventbud.pl">mm@eventbud.pl</a></dd>
+<dt data-i18n="k.addr">Adres</dt><dd>ul. Niecała 3a/16, 60-805 Poznań</dd>
+</dl>
+</div>
+<form class="form" id="form" novalidate>
+<label><span data-i18n="f.name">Imię i nazwisko</span><input name="n" autocomplete="name"></label>
+<label><span data-i18n="f.firm">Firma</span><input name="f" autocomplete="organization"></label>
+<label><span data-i18n="f.mail">E-mail</span><input name="e" type="email" autocomplete="email"></label>
+<label><span data-i18n="f.tel">Telefon</span><input name="t" type="tel" autocomplete="tel"></label>
+<label class="wide"><span data-i18n="f.fair">Targi, termin i wielkość stoiska</span><input name="x"></label>
+<label class="wide"><span data-i18n="f.msg">Wiadomość</span><textarea name="m" rows="4"></textarea></label>
+<button class="btn" type="submit" data-i18n="f.send">Wyślij zapytanie</button>
+<p class="form-msg" id="form-msg" hidden data-i18n="f.demo">To podgląd - formularz jeszcze nie wysyła wiadomości.</p>
+</form>
+</div>
+</section>
+</main>
+<section class="clients" aria-labelledby="cl-h">
+<div class="wrap"><h2 id="cl-h" class="clients-h" data-i18n="cl.h">Budowaliśmy stoiska dla</h2></div>
+<div class="marquee"><ul class="mq-track"><li>Bizerba</li><li>Schunk</li><li>Krosno</li><li>Kinna Automatic</li><li>Multicam Plus</li><li>FKL Polska</li><li>Drozdowski</li><li>Estella</li><li>Soditronik</li><li>Premium Paper</li><li>Mega Cotton</li><li>Bettina</li><li>PNOS</li><li>Gortex</li><li>Granit</li><li>Nestro</li><li>Rimac</li><li>Knaap</li><li>Terravita</li><li>Lamela</li><li>Kingsburg</li><li>Inneo</li><li>Kudos</li><li>Mivar Viva</li><li>Jobobike</li><li>D.G. Dena</li><li>Artevet</li><li>Calluna</li><li>Marand</li><li>Sky Industries</li><li>4TEK Europe</li><li>Arkus</li><li>Focus</li><li>Hirad Smart Trading</li></ul><ul class="mq-track" aria-hidden="true"><li>Bizerba</li><li>Schunk</li><li>Krosno</li><li>Kinna Automatic</li><li>Multicam Plus</li><li>FKL Polska</li><li>Drozdowski</li><li>Estella</li><li>Soditronik</li><li>Premium Paper</li><li>Mega Cotton</li><li>Bettina</li><li>PNOS</li><li>Gortex</li><li>Granit</li><li>Nestro</li><li>Rimac</li><li>Knaap</li><li>Terravita</li><li>Lamela</li><li>Kingsburg</li><li>Inneo</li><li>Kudos</li><li>Mivar Viva</li><li>Jobobike</li><li>D.G. Dena</li><li>Artevet</li><li>Calluna</li><li>Marand</li><li>Sky Industries</li><li>4TEK Europe</li><li>Arkus</li><li>Focus</li><li>Hirad Smart Trading</li></ul></div>
+</section>
+<footer class="foot">
+<div class="wrap foot-in">
+<div class="foot-brand"><a class="brand" href="index.html" aria-label="Event Bud"><svg class="logo-svg" role="img" aria-label="Event Bud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1048 504" fill="currentColor" fill-rule="evenodd"><path transform="translate(609,0)" d="M0 0 C1 0 2 0 3 0 C5 0 7 0 9 0 C11 4 11 4 11 7 C10 10 9 11 7 13 C4 16 2 19 -1 22 C-1 23 -2 24 -2 24 C-4 26 -4 26 -4 28 C-1 28 -1 28 15 30 C15 32 16 33 16 34 C14 38 12 40 7 41 C4 41 4 41 2 41 C1 42 1 42 -2 42 C-4 42 -6 42 -8 42 C-17 42 -17 42 -20 44 C-24 49 -24 49 -26 51 C-28 54 -31 58 -34 62 C-35 63 -35 63 -36 64 C-38 68 -41 71 -44 75 C-48 79 -51 83 -54 87 C-55 88 -55 88 -56 89 C-59 94 -60 97 -59 102 C-57 105 -54 106 -52 107 C-51 108 -51 108 -49 108 C-44 110 -40 110 -35 110 C-34 110 -33 110 -31 110 C-30 110 -29 110 -28 110 C-26 110 -25 110 -24 110 C-20 110 -17 110 -14 110 C-14 112 -13 113 -13 114 C-21 121 -28 121 -39 121 C-39 121 -39 121 -41 121 C-43 121 -44 121 -46 121 C-49 121 -51 121 -54 121 C-78 122 -78 122 -88 115 C-88 114 -89 113 -90 112 C-95 113 -100 114 -105 116 C-116 120 -127 121 -140 121 C-140 121 -140 121 -143 121 C-166 122 -166 122 -174 114 C-176 110 -174 106 -173 102 C-171 97 -167 93 -164 89 C-160 86 -157 82 -154 78 C-151 74 -148 71 -144 67 C-143 67 -142 67 -142 67 C-142 67 -142 67 -141 66 C-139 62 -137 60 -134 57 C-132 55 -132 53 -133 50 C-148 50 -161 61 -173 70 C-173 71 -174 71 -175 72 C-187 80 -197 91 -208 101 C-209 102 -210 103 -210 104 C-213 106 -215 109 -217 111 C-224 118 -229 121 -239 122 C-240 122 -240 122 -241 122 C-243 123 -243 123 -247 122 C-248 121 -249 120 -250 120 C-251 118 -251 118 -253 117 C-256 118 -258 118 -260 119 C-269 121 -278 122 -287 122 C-287 122 -287 122 -291 122 C-300 122 -310 121 -320 117 C-320 117 -320 117 -322 116 C-324 115 -326 114 -328 113 C-332 112 -334 113 -338 114 C-348 116 -359 115 -368 110 C-373 106 -376 100 -379 94 C-384 95 -387 97 -390 100 C-410 116 -431 123 -457 121 C-460 120 -463 119 -466 118 C-470 116 -474 118 -479 119 C-488 122 -498 121 -508 121 C-510 121 -512 121 -514 121 C-525 122 -535 121 -545 117 C-554 113 -561 115 -571 117 C-582 120 -592 121 -603 121 C-604 120 -604 119 -605 117 C-598 108 -583 107 -572 106 C-569 105 -569 105 -567 104 C-567 103 -567 102 -567 100 C-567 78 -567 78 -561 69 C-560 68 -560 67 -559 66 C-557 61 -553 57 -549 53 C-548 52 -547 52 -547 51 C-537 42 -526 35 -514 31 C-513 31 -512 31 -511 30 C-511 30 -510 30 -509 30 C-509 29 -508 29 -507 29 C-500 27 -493 27 -486 27 C-485 27 -484 27 -483 27 C-476 27 -471 28 -464 31 C-461 35 -461 38 -461 43 C-461 51 -465 55 -470 61 C-470 62 -471 63 -472 64 C-478 72 -486 78 -494 84 C-496 85 -497 86 -499 87 C-504 92 -510 95 -517 98 C-520 99 -520 99 -521 101 C-521 103 -521 103 -520 105 C-510 112 -494 110 -484 108 C-474 107 -474 107 -471 102 C-470 99 -470 99 -468 96 C-462 79 -450 66 -438 52 C-437 51 -436 50 -435 49 C-415 27 -415 27 -404 26 C-398 26 -392 26 -387 29 C-385 32 -385 32 -385 34 C-389 39 -393 44 -398 48 C-398 49 -399 49 -399 50 C-400 51 -402 52 -403 53 C-404 53 -404 53 -405 53 C-405 54 -405 54 -405 55 C-406 56 -407 58 -408 59 C-410 60 -412 62 -414 64 C-414 65 -415 66 -416 67 C-417 68 -419 70 -420 71 C-421 72 -422 73 -422 74 C-423 74 -423 74 -424 76 C-426 77 -426 77 -428 77 C-428 78 -428 78 -429 79 C-430 82 -432 84 -433 87 C-440 97 -440 97 -440 102 C-439 105 -439 105 -437 106 C-431 109 -424 105 -418 103 C-405 96 -395 88 -385 78 C-383 75 -383 75 -380 73 C-376 70 -374 65 -372 60 C-368 48 -359 34 -347 28 C-341 27 -335 26 -329 29 C-328 33 -328 36 -330 39 C-333 44 -337 48 -341 52 C-345 57 -349 62 -353 66 C-356 70 -360 73 -364 76 C-367 79 -368 81 -368 85 C-368 91 -368 95 -364 100 C-359 104 -353 105 -346 104 C-344 104 -344 104 -341 102 C-341 100 -341 97 -341 95 C-341 83 -338 75 -332 65 C-332 65 -332 65 -330 63 C-324 53 -316 47 -306 41 C-305 41 -304 40 -304 40 C-292 32 -279 28 -265 28 C-264 28 -263 28 -262 27 C-246 27 -246 27 -240 31 C-240 32 -239 32 -238 33 C-236 35 -236 38 -236 42 C-236 51 -241 60 -247 66 C-249 69 -252 71 -255 73 C-255 74 -255 74 -257 75 C-269 85 -281 94 -295 100 C-294 102 -294 104 -294 105 C-282 110 -269 111 -257 106 C-231 95 -215 72 -200 49 C-188 30 -188 30 -178 27 C-176 27 -175 27 -174 27 C-173 27 -172 27 -171 27 C-170 27 -169 27 -168 27 C-167 27 -166 27 -166 27 C-165 27 -164 27 -163 27 C-162 27 -162 27 -161 27 C-159 27 -159 27 -157 28 C-157 34 -160 36 -164 40 C-169 45 -173 50 -177 56 C-178 56 -178 57 -179 57 C-180 57 -180 57 -181 57 C-181 58 -181 58 -182 59 C-183 62 -184 65 -185 67 C-180 65 -176 62 -172 59 C-153 43 -127 28 -102 28 C-98 29 -96 30 -93 32 C-91 34 -92 37 -92 40 C-94 46 -99 51 -103 55 C-106 58 -108 62 -111 65 C-114 69 -118 73 -122 76 C-126 80 -129 85 -133 89 C-133 90 -133 90 -135 92 C-136 93 -136 93 -137 95 C-138 96 -139 97 -139 98 C-141 100 -141 102 -141 105 C-132 111 -124 110 -113 108 C-99 103 -88 94 -79 82 C-77 79 -74 76 -72 73 C-68 68 -64 63 -60 57 C-58 54 -55 51 -52 48 C-52 48 -52 48 -51 46 C-51 45 -52 44 -52 42 C-54 42 -57 41 -60 40 C-61 38 -61 38 -61 35 C-58 32 -56 30 -52 29 C-48 29 -45 29 -42 28 C-37 28 -36 27 -32 23 C-31 22 -30 21 -30 20 C-14 0 -14 0 0 0 Z M-525 61 C-536 77 -536 77 -535 84 C-534 88 -534 88 -531 90 C-521 90 -512 82 -505 76 C-502 74 -502 74 -499 73 C-497 71 -495 70 -493 67 C-493 67 -492 66 -492 65 C-491 64 -490 64 -490 63 C-489 62 -488 62 -488 61 C-487 60 -486 59 -486 58 C-485 57 -484 56 -484 55 C-482 52 -482 52 -482 48 C-483 45 -483 45 -485 43 C-500 38 -516 50 -525 61 Z M-291 54 C-292 55 -292 55 -293 56 C-300 61 -307 72 -308 81 C-308 85 -308 87 -306 90 C-305 90 -304 91 -304 91 C-295 88 -287 83 -280 77 C-279 77 -278 76 -278 76 C-269 70 -261 63 -257 53 C-256 50 -256 48 -258 45 C-269 37 -283 48 -291 54 Z "/><path transform="translate(663,71)" d="M0 0 C0 -0 0 -0 2 0 C5 0 8 0 10 0 C12 0 14 0 16 0 C21 0 26 0 31 0 C34 0 38 0 41 0 C52 0 64 0 75 0 C85 0 96 0 106 0 C115 0 124 0 133 0 C138 0 144 0 149 0 C154 0 159 0 164 0 C166 0 168 0 170 0 C187 0 204 0 221 5 C223 5 224 6 225 6 C229 7 233 8 237 10 C238 10 238 10 239 10 C243 11 246 13 249 15 C251 16 252 16 254 17 C269 23 284 31 297 41 C299 43 302 44 304 46 C310 50 315 55 320 61 C322 62 324 64 325 66 C331 71 336 77 341 84 C342 86 344 88 346 90 C365 114 376 145 382 174 C382 176 383 178 383 180 C385 188 386 195 386 203 C386 205 386 206 386 207 C386 210 386 212 386 215 C386 219 386 223 386 226 C386 229 386 232 386 234 C386 235 386 236 386 238 C386 244 385 250 383 256 C382 259 381 262 381 266 C377 287 370 305 359 323 C358 326 356 328 355 331 C350 340 345 347 339 354 C337 357 335 359 333 362 C328 368 322 374 315 379 C313 381 312 383 310 384 C306 389 301 392 296 395 C294 396 292 398 290 399 C275 409 259 417 242 423 C241 424 240 424 239 424 C232 427 226 429 220 430 C217 430 217 430 214 431 C214 432 214 432 214 433 C145 433 76 433 5 433 C6 427 7 425 10 420 C11 419 11 419 12 418 C15 414 18 410 22 406 C25 402 27 399 29 396 C30 395 30 395 30 394 C31 394 32 394 32 394 C33 394 33 393 33 392 C35 389 37 387 39 385 C46 384 52 384 58 384 C59 384 60 384 62 384 C64 384 67 384 69 384 C73 384 77 384 81 384 C91 384 100 384 109 384 C118 384 126 384 135 384 C139 384 144 384 148 384 C159 384 170 384 181 384 C182 384 183 384 184 384 C190 383 197 382 203 381 C204 380 204 380 206 380 C230 374 251 364 270 349 C271 348 272 348 273 347 C300 327 319 296 328 264 C328 264 328 264 329 262 C335 242 335 220 333 199 C333 198 333 198 333 197 C332 187 330 178 327 168 C326 166 326 165 326 163 C319 141 304 120 288 103 C286 101 285 100 283 97 C281 95 279 93 276 91 C272 88 268 86 264 83 C254 74 243 69 230 64 C229 64 228 63 227 63 C223 62 220 60 216 59 C215 59 214 58 213 58 C194 52 174 51 154 51 C152 51 150 51 148 51 C144 51 140 51 136 51 C130 51 123 51 117 51 C102 51 87 51 72 51 C58 51 44 51 30 51 C25 51 20 51 14 51 C-45 51 -45 51 -50 49 C-49 45 -46 43 -44 40 C-42 38 -41 37 -39 35 C-39 34 -38 33 -37 32 C-36 31 -35 30 -35 29 C-30 23 -25 17 -20 11 C-18 10 -17 8 -16 7 C-15 6 -14 5 -14 5 C-14 4 -14 4 -12 3 C-9 -1 -4 0 0 0 Z "/><path transform="translate(316,156)" d="M0 0 C1 0 2 0 2 0 C3 0 4 0 5 0 C6 0 6 0 8 0 C10 0 12 0 14 0 C17 0 20 0 23 0 C25 0 27 0 29 0 C29 0 29 0 32 0 C32 0 33 0 34 0 C35 0 36 0 36 0 C40 1 41 2 42 4 C43 7 43 10 43 13 C43 14 43 14 43 15 C43 18 43 21 43 24 C43 26 43 28 43 30 C43 35 43 39 43 44 C43 51 43 58 43 66 C43 67 43 68 43 69 C43 72 43 75 43 77 C43 80 43 84 43 87 C42 118 42 149 43 180 C43 189 43 198 43 207 C43 213 43 219 43 225 C43 229 43 232 43 236 C43 273 43 273 56 286 C58 289 61 291 64 292 C65 293 65 293 67 294 C74 298 80 298 88 298 C88 298 88 298 90 298 C92 298 95 298 97 298 C99 298 100 298 102 298 C107 298 111 298 116 298 C119 298 121 298 124 298 C134 298 144 298 154 298 C164 298 173 299 182 299 C190 299 198 299 206 299 C211 299 216 299 221 299 C225 299 230 299 234 299 C236 299 237 299 239 299 C260 299 260 299 269 294 C270 293 270 293 272 292 C275 290 277 288 280 286 C280 286 281 286 282 286 C282 286 282 285 282 285 C283 282 285 281 286 279 C290 272 292 265 292 256 C292 256 292 255 292 254 C293 244 293 234 293 224 C293 222 293 220 293 218 C293 214 293 209 293 204 C293 197 293 190 293 183 C292 168 292 152 292 137 C292 121 292 104 292 88 C292 80 292 73 292 66 C292 62 292 57 292 53 C292 51 292 49 292 47 C292 10 292 10 298 3 C305 0 313 1 320 1 C322 1 323 1 324 1 C331 0 337 0 344 1 C346 4 346 4 346 8 C346 9 346 10 346 10 C346 11 346 12 346 13 C346 14 346 16 346 17 C346 20 346 24 346 27 C346 30 346 32 346 35 C346 41 346 48 346 54 C346 59 346 64 346 69 C346 70 346 70 346 71 C346 73 346 74 346 76 C346 89 346 103 346 117 C346 129 346 140 346 152 C346 166 346 180 346 193 C346 195 346 196 346 198 C346 198 346 199 346 200 C346 205 346 210 346 215 C346 222 346 229 346 235 C346 238 346 240 346 243 C346 246 346 250 346 253 C346 254 346 255 346 256 C346 268 343 279 338 290 C338 291 338 292 338 293 C331 311 315 326 300 336 C299 337 298 338 297 338 C292 341 288 343 282 345 C280 345 280 345 280 347 C251 348 223 348 194 348 C191 348 187 348 184 348 C184 348 184 348 182 348 C171 348 160 348 150 348 C138 348 127 348 116 348 C110 348 104 348 97 348 C92 348 86 348 80 348 C78 348 76 348 73 348 C70 348 67 348 64 348 C64 348 63 348 62 348 C56 348 56 348 53 345 C53 345 52 344 52 343 C50 342 50 342 47 342 C42 340 38 338 34 334 C32 334 31 333 30 332 C21 325 13 318 6 307 C6 307 6 306 5 305 C2 300 -1 294 -3 288 C-4 288 -4 287 -4 286 C-11 270 -10 254 -10 238 C-10 235 -10 233 -10 230 C-10 223 -10 216 -10 210 C-10 205 -10 201 -10 197 C-10 185 -10 173 -10 161 C-10 160 -10 159 -10 158 C-10 157 -10 155 -10 154 C-10 153 -10 152 -10 151 C-10 151 -10 150 -10 149 C-10 137 -10 124 -10 112 C-10 99 -10 86 -10 73 C-10 66 -10 59 -10 51 C-10 45 -10 38 -10 31 C-10 29 -10 26 -10 24 C-10 20 -10 17 -10 14 C-10 12 -10 12 -10 10 C-10 8 -10 6 -9 3 C-6 1 -4 0 0 0 Z "/><path transform="translate(121,158)" d="M0 0 C5 0 10 0 15 0 C21 0 28 0 35 0 C37 0 40 0 42 0 C64 0 86 0 104 13 C106 14 107 16 109 17 C111 18 112 19 114 20 C115 21 116 21 116 22 C123 26 127 32 132 38 C132 38 132 38 134 40 C138 46 140 51 143 57 C143 58 144 59 144 60 C154 82 152 112 143 134 C139 143 135 151 127 158 C124 161 122 164 120 166 C118 168 118 168 116 170 C114 171 114 171 113 173 C113 175 113 175 114 177 C115 178 115 178 116 179 C117 180 117 180 118 181 C120 183 122 185 124 187 C142 205 150 229 150 254 C150 283 138 306 118 326 C110 333 100 339 90 343 C87 344 87 344 86 346 C59 346 32 346 6 346 C-7 346 -19 346 -32 346 C-43 346 -54 346 -64 346 C-70 346 -76 346 -82 346 C-87 346 -92 346 -98 346 C-100 346 -102 346 -104 346 C-107 346 -109 346 -112 346 C-112 346 -112 346 -114 346 C-120 346 -120 346 -121 345 C-121 344 -121 342 -121 341 C-121 340 -121 339 -121 338 C-121 337 -121 336 -121 335 C-121 334 -121 333 -121 332 C-121 329 -121 325 -121 322 C-121 320 -121 318 -121 316 C-121 310 -121 305 -121 299 C-117 298 -114 298 -110 298 C-109 298 -108 298 -108 298 C-106 298 -103 298 -101 298 C-99 298 -97 298 -96 298 C-92 298 -88 298 -85 298 C-79 298 -73 298 -68 298 C-51 298 -35 298 -18 298 C-10 298 0 298 8 298 C13 298 18 298 23 298 C27 298 32 298 36 298 C38 298 40 298 41 298 C59 298 72 294 86 282 C95 272 98 263 99 250 C98 237 94 225 85 216 C71 203 58 201 40 201 C38 201 37 201 35 201 C30 201 26 201 21 201 C16 201 12 201 7 201 C-2 201 -11 201 -20 201 C-36 201 -52 200 -69 200 C-74 200 -80 200 -86 200 C-89 200 -93 200 -96 200 C-98 200 -99 200 -101 200 C-103 200 -106 200 -108 200 C-109 200 -110 200 -112 200 C-115 200 -115 200 -121 199 C-121 183 -121 167 -121 150 C-117 149 -114 149 -110 149 C-109 149 -108 149 -108 149 C-105 149 -103 149 -101 149 C-99 149 -97 149 -96 149 C-92 149 -88 149 -84 149 C-79 149 -73 149 -67 149 C-65 149 -63 149 -61 149 C-60 149 -60 149 -58 149 C-44 149 -31 149 -17 149 C-8 149 1 149 10 149 C15 149 20 149 24 149 C29 149 34 149 38 149 C40 149 41 149 43 149 C61 149 74 144 87 132 C95 123 98 112 99 100 C98 89 95 77 87 69 C86 69 86 68 85 67 C75 56 63 52 48 51 C40 51 31 51 22 51 C18 51 14 51 10 51 C1 51 -8 51 -18 51 C-28 51 -39 51 -49 51 C-50 51 -50 51 -51 51 C-68 51 -86 51 -103 51 C-104 51 -104 51 -105 51 C-107 51 -109 51 -112 50 C-113 50 -114 50 -115 50 C-118 50 -118 50 -121 49 C-121 42 -121 36 -121 29 C-121 27 -121 25 -121 22 C-121 19 -121 16 -121 13 C-121 12 -121 10 -121 10 C-121 8 -121 8 -121 7 C-121 6 -121 5 -121 4 C-121 2 -121 2 -120 1 C-117 1 -114 1 -111 1 C-110 1 -110 1 -107 1 C-104 1 -100 1 -96 1 C-96 1 -96 1 -93 1 C-62 0 -31 0 0 0 Z "/></svg></a>
+<p data-i18n="ft.desc">Projektowanie i zabudowa stoisk targowych w Polsce i w Europie.</p></div>
+<div class="foot-col"><p><b>Event Bud</b><br>ul. Niecała 3a/16<br>60-805 <span data-i18n="ft.addr">Poznań</span></p></div>
+<div class="foot-col"><p><a href="tel:+48696008848">+48 696 008 848</a><br><a href="mailto:mm@eventbud.pl">mm@eventbud.pl</a><br><a href="https://www.facebook.com/eventbudexpos" rel="noopener">facebook.com/eventbudexpos</a></p></div>
+<ul class="foot-nav"><li><a href="index.html" data-i18n="nav.start">Start</a></li><li><a href="projekty.html" data-i18n="nav.proj">Projekty</a></li><li><a href="realizacje.html" data-i18n="nav.real">Realizacje</a></li><li><a href="rekomendacje.html" data-i18n="nav.rek">Rekomendacje</a></li><li><a href="index.html#kontakt" data-i18n="nav.kontakt">Kontakt</a></li></ul>
+</div>
+<div class="wrap foot-bottom"><span class="copy" data-i18n="ft.copy">© 2026 Event Bud. Wszelkie prawa zastrzeżone.</span><a class="wylinka-badge" href="https://wylinka.pl/?utm_source=eventbud.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a></div>
+</footer>
+<dialog class="lightbox" id="lightbox" aria-label="Galeria">
+<figure><img alt="" id="lb-img"><figcaption id="lb-cap"></figcaption></figure>
+<button class="lb-btn lb-prev" type="button" aria-label="Poprzednie"><span aria-hidden="true">‹</span></button>
+<button class="lb-btn lb-next" type="button" aria-label="Następne"><span aria-hidden="true">›</span></button>
+<button class="lb-close" type="button" data-i18n="lb.close">Zamknij</button>
+</dialog>
+<script type="application/json" id="i18n-en">{"nav.start": "Home", "nav.proj": "Projects", "nav.real": "Completed stands", "nav.rek": "Recommendations", "nav.kontakt": "Contact", "nav.menu": "Menu", "cl.h": "We have built stands for", "ft.addr": "Poznań, Poland", "ft.copy": "© 2026 Event Bud. All rights reserved.", "ft.note": "Preview - design direction.", "ft.desc": "Exhibition stand design and construction in Poland and across Europe.", "lb.close": "Close", "h.h1": "We design and build exhibition stands across Europe", "h.lead": "3D visualisation, production, transport, installation and on-site service. One contractor from Poznań, from the first sketch to dismantling.", "h.cta": "Ask about a stand", "h.note": "In the photos: stands built by Event Bud", "a.h": "One contractor, from the sketch to the finished stand", "a.p1": "Since 2014 we have been designing and building exhibition stands. We combine a well-thought-out look with function and a sensible budget.", "a.p2": "We work at fairs in Poland and abroad, most often in Germany.", "a.fairs": "Our stands have stood at fairs including:", "a.scope": "Scope of work", "p.h": "First the visualisation. Then exactly that stand.", "p.lead": "For most projects we can show the 3D design next to a photo of the finished stand at the fair.", "p.viz": "visualisation", "p.real": "finished stand", "p.all": "All completed stands", "pr.h": "How we work", "pr.lead": "One contact person for the whole project - from the first conversation to dismantling.", "t.h": "See more", "t.proj": "Projects", "t.proj.p": "3D visualisations of stands prepared for our clients.", "t.real": "Completed stands", "t.real.p": "Stands at the fairs, many shown next to their design.", "t.rek": "Recommendations", "t.rek.p": "What exhibitors say about working with us, plus reference letters.", "r.h": "What our clients say", "r.all": "All recommendations", "k.h": "Planning a fair?", "k.lead": "Send the name of the fair, the date and the stand size. We will reply with design and quote proposals.", "k.addr": "Address", "k.tel": "Phone", "k.mail": "E-mail", "f.name": "Name and surname", "f.firm": "Company", "f.mail": "E-mail", "f.tel": "Phone", "f.fair": "Fair, date and stand size", "f.msg": "Message", "f.send": "Send enquiry", "f.demo": "This is a preview - the form does not send messages yet.", "s0": "Stand design with 3D visualisation", "s1": "Technical documentation", "s2": "Stand construction at fairs in Poland and abroad", "s3": "Electrical installation and lighting", "s4": "Graphics: prints, foam letters, CNC milling", "s5": "Furniture and appliances for the stand", "s6": "Screens, projectors, sound", "s7": "Technical service during the fair", "st0": "Talking through your needs, brand and budget", "st1": "Stand design and quote", "st2": "Signing the contract", "st3": "Production of all stand elements", "st4": "Transport to the fair", "st5": "Installation", "st6": "Handover of the finished stand", "st7": "Dismantling after the fair"}</script>
+</body>
+</html>
